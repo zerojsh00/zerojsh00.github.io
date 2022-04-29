@@ -1,6 +1,6 @@
 ---
-title: 블로그 포스팅을 시작합니다.
-author: simon sanghyeon
+title: 블로그 포스팅을 시작합니다. ㅋㅋㅋㅋ
+author: simon sanghyeoni
 date: 2022-04-17
 categories: [Root Cause Analysis]
 tags: [Root Cause Analysis, Anomaly Detection, Artificial Intelligence]

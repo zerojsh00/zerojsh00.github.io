@@ -23,10 +23,10 @@ timezone: Asia/Seoul
 
 title: Simon's note                          # the main title
 
-tagline: 성장하는 연구원의 작은 연구공간.   # it will display as the sub-title
+tagline: 성장하는 연구원의 작은 공간   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
-  A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
+  공부한 내용을 정리하는 공간입니다.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://zerojsh00.github.io'
