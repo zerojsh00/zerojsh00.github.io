@@ -21,9 +21,9 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Simon's note                          # the main title
+title: Simon's Research Center                          # the main title
 
-tagline: 성장하는 연구원의 작은 공간   # it will display as the sub-title
+tagline: 성장하는 연구원의 공책   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   공부한 내용을 정리하는 공간입니다.
