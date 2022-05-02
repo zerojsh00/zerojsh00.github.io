@@ -47,7 +47,7 @@ IT 인프라 관리의 관점에서 볼 때, 이러한 복잡성은 클라우드
 결론부터 말하자면, 인과추론은 기계학습과는 달리 원인과 결과의 관계를 합리적으로 알아가기 위한 일련의 방법론을 통칭하는데, 지금까지 배워왔던 기계학습, 즉 데이터 사이언스와는 다른 접근법을 보입니다.
 오히려 `데이터 분석`의 영역이라고 봐야겠네요.
 
-![two_paradigms](/assets/2022-05-02-Causal Inference 01/two_paradigms.png)
+![two_paradigms](/assets/img/2022-05-02-Causal Inference 01/two_paradigms.png)
 
 위 그림은 일반적인 '데이터 사이언스' 방식인 Prediction과 '데이터 분석' 방식인 인과추론이 어떻게 다른지를 간략히 보여줍니다.
 즉, Prediction은 대개 AI 모델이 학습 데이터를 통해 정답을 예측하는 문제라면, 인과추론은 `연구 디자인 방식(Design-based Approach)` 또는 `그래프 기반 방식(Graph-based Approach)`을 활용하는 문제입니다.
@@ -58,7 +58,7 @@ IT 인프라 관리의 관점에서 볼 때, 이러한 복잡성은 클라우드
 필자가 인과추론을 공부하며 참고하고 있는 `인과추론의 데이터과학`에서는 다음과 같은 추천시스템의 협업필터링을 예로 들어 인과추론의 필요성을 설명합니다.
 어떤 기업이 추천시스템을 도입하고자 하는데, 추천시스템을 도입하는 것이 정말로 사용자의 구매로 이어지는 '원인'이 되는지 확인하고 싶다고 합시다.
 
-![collaborative_ex](/assets/2022-05-02-Causal Inference 01/collaborative_ex.png)
+![collaborative_ex](/assets/img/2022-05-02-Causal Inference 01/collaborative_ex.png)
 
 이 예에서 사용자 A가 라면과 콜라를 구입했습니다. 사용자 B도 라면과 콜라를 구입했네요.
 둘은 비슷한 물건들을 구입했으니 비슷한 사용자라고 볼 수 있겠습니다.
@@ -73,7 +73,7 @@ IT 인프라 관리의 관점에서 볼 때, 이러한 복잡성은 클라우드
 ## 심슨의 역설로 보는 인과추론
 또 다른 예를 들어봅시다.
 
-![simpsons paradox](/assets/2022-05-02-Causal Inference 01/simpsons paradox.png)
+![simpsons paradox](/assets/img/2022-05-02-Causal Inference 01/simpsons paradox.png)
 
 위의 예시는 인과추론을 공부하기 시작한 분들이라면 제일 처음으로 봤을 법한 표일겁니다. 심슨의 역설이라 불리는 표죠.
 이해를 쉽게 하기 위해서 표의 행에 해당하는 Treatment A와 B를 각각 화이자(A)와 모더나 백신(B)이라고 가정해봅시다. 각 %는 사망률을 의미합니다.
@@ -87,7 +87,7 @@ IT 인프라 관리의 관점에서 볼 때, 이러한 복잡성은 클라우드
 사실 이 문제는 인과관계를 어떻게 정의하냐에 따라서 결론이 완전히 달라질 수 있습니다. 두 가지 시나리오로 예를 들어보겠습니다.
 
 ### 심슨의 역설 - 시나리오 1 : 경증/중증이 처방의 원인이 되는 경우
-![causal_structure01](/assets/2022-05-02-Causal Inference 01/causal_structure01.png)
+![causal_structure01](/assets/img/2022-05-02-Causal Inference 01/causal_structure01.png)
 
 이 그래프는 경증/중증을 의미하는 Condition C에 따라서 어떤 백신(Treatment T)을 처방하게 되는지 결정되는 경우가 표현된 인과 그래프입니다.
 예를 들기 위해서 가정을 좀 해보겠는데, 화이자(A)는 상대적으로 구하기 쉬운 반면, 모더나(B)는 굉장히 희귀해서 구하기 어렵고 값도 더 비싸다고 가정해봅시다.
@@ -105,7 +105,7 @@ IT 인프라 관리의 관점에서 볼 때, 이러한 복잡성은 클라우드
 정리하자면, 위와 같은 인과관계 설정에서는 경증/중증 각각의 그룹에서 더 낮은 사망률을 기록한 백신 B를 처방하는 것이 바람직하게 됩니다.
 
 ### 심슨의 역설 - 시나리오 2 : 처방이 경증/중증의 원인이 되는 경우
-![causal_structure02](/assets/2022-05-02-Causal Inference 01/causal_structure02.png)
+![causal_structure02](/assets/img/2022-05-02-Causal Inference 01/causal_structure02.png)
 
 이번에는 시나리오 1과는 다른 예를 들어보겠습니다.
 화이자(A)를 처방하는지 또는 모더나(B)를 처방하는지에 따라서 환자의 경증/중증 여부가 달라지는 독특한 설정을 해보겠습니다.
