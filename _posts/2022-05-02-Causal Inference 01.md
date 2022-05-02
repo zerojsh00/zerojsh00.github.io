@@ -1,7 +1,7 @@
 ---
 title: 공부하며 정리하는 인과추론 01
 author: simon sanghyeon
-date: 2022-04-17
+date: 2022-05-02
 categories: [Causal Inference]
 tags: [Causal Inference, Root Cause Analysis]
 render_with_liquid: true
