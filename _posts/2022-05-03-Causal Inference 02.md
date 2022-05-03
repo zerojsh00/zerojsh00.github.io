@@ -1,7 +1,7 @@
 ---
 title: 공부하며 정리하는 인과추론 02
 author: simon sanghyeon
-date: 2022-05-04
+date: 2022-05-03
 categories: [Causal Inference]
 tags: [Causal Inference, Root Cause Analysis]
 render_with_liquid: true
@@ -9,7 +9,7 @@ render_with_liquid: true
 이 포스트는 개인적으로 공부한 내용을 정리하고 필요한 분들에게 지식을 공유하기 위해 작성되었습니다.<br>
 지적하실 내용이 있다면, 언제든 댓글 또는 메일로 알려주시기를 바랍니다.
 
-본 포스트의 상당 내용은 [`인과추론의 데이터과학`](https://www.youtube.com/channel/UCkEHnPq2T8Vpafk3p-Rk49A) 강의를 참고하였음을 밝힙니다.
+본 포스트의 상당 내용은 [`인과추론의 데이터과학`](https://www.youtube.com/channel/UCkEHnPq2T8Vpafk3p-Rk49A) 강의를 정리한 것임을 밝힙니다.
 
 # 지난 이야기
 복잡한 IT 환경에서 이상징후 및 장애가 발생되었을 때, 이를 인과추론의 방식으로 해결해보고자 하는 큰 꿈을 품고 첫 포스트인 [공부하며 정리하는 인과추론 01](https://zerojsh00.github.io/posts/Causal-Inference-01/)을 올렸습니다.
@@ -24,7 +24,7 @@ render_with_liquid: true
 인간의 사유에 근거한, 철학적인 접근으로 인과관계가 무엇인지 고민했던 것이죠.
 현대는 데이터의 시대입니다. 이에 따라, 인간의 사유에만 의존했던 과거의 철학적 접근 방식을 너머, 더욱 시스템적이고 과학적인 방법으로 인과관계를 분석하려는 방식이 개발되었습니다.
 
-![frameworks](/assets/img/2022-05-04-Causal Inference 02/frameworks.png)
+![frameworks](/assets/img/2022-05-03-Causal%20Inference%2002/frameworks.png)
 
 위 그림이 바로 그것인데요. 이들은 인과추론의 양대산맥으로, 왼쪽은 Potential Outcomes Framework라는 인과추론 방식이며, 오른쪽은 Structural Causal Model이라는 인과추론 방식입니다.
 Potential Outcomes Framework는 하버드의 Donald Rubin 교수님이 만든 방법이며, Structural Causal Model은 UCLA의 Judea Pearl 교수님이 개발했다고 합니다.
@@ -40,6 +40,13 @@ Potential Outcomes Framework의 경우, 해당 방법론의 초석을 다진 연
 중요한 것은, 결이 다른 두 방법론을 잘 이해하고, 우리가 풀고자 하는 문제에 더 적합한 방법론이 무엇인지 결정하여 잘 활용하는 데 있습니다.
 
 # 훑어보는 Potential Outcomes Framework
+앞서, Potential Outcomes Framework는 잠재적 결과를 이용하여 인과관계를 분석한다고 했습니다. 이 말에 대해서 조금 더 들여다보도록 하죠.
+
+![counterfactual_controlgroup](../assets/img/2022-05-03-Causal Inference 02/counterfactual_controlgroup.png)
+
+'독서가 성적에 미치는 영향'을 심슨가족 캐릭터로 예를 들어봅시다.
+왼쪽을 보았을 때, 책을 읽고 있는 리사(여자)가 진짜 책을 읽었기 때문에 성적이 올랐는지를
+
 (작업 중)
 
 # 훑어보는 Structural Causal Model
