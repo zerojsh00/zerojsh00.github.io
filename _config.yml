@@ -62,6 +62,14 @@ google_analytics:
     proxy_endpoint:   # fill in the Google Analytics superProxy endpoint of Google App Engine
     cache_path:       # the local PV cache data, friendly to visitors from GFW region
 
+# 구글 애널리틱스를 활용한 방문자 통계
+# Analytics
+analytics:
+  provider               : "google-gtag"
+                          # false (default), "google", "google-universal", "google-gtag", "custom"
+  google:
+    tracking_id          : "G-0C2D2B8L38"
+    anonymize_ip         : # true, false (default)
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,
