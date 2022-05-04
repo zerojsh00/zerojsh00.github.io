@@ -9,7 +9,7 @@ render_with_liquid: true
 이 포스트는 개인적으로 공부한 내용을 정리하고 필요한 분들에게 지식을 공유하기 위해 작성되었습니다.<br>
 지적하실 내용이 있다면, 언제든 댓글 또는 메일로 알려주시기를 바랍니다.
 
-본 포스트의 상당 내용은 [`인과추론의 데이터과학`](https://www.youtube.com/channel/UCkEHnPq2T8Vpafk3p-Rk49A) 강의를 정리한 것임을 밝힙니다.
+>본 포스트의 상당 내용은 [`인과추론의 데이터과학`](https://www.youtube.com/channel/UCkEHnPq2T8Vpafk3p-Rk49A) 강의를 정리한 것임을 밝힙니다.
 
 # 인과추론을 통해 달성하고자 하는 것
 ## IT 운영 관리에서의 근본원인분석
