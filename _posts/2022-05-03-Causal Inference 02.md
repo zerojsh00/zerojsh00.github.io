@@ -177,7 +177,7 @@ do-operator는 Confounder로 인해 Backdoor Path가 열려있는 상황에서 B
 ![do_op](/assets/img/2022-05-03-Causal Inference 02/do_op.png)
 
 위의 그림을 살펴보며 이해해봅시다. $T$노드가 $Y$노드와 인과적 연관성이 있는지 분석하고자 하는데, 왼쪽의 방식은 빨간 점선으로 표현되는 Backdoor Path가 열려있어서 인과관계 분석이 어렵습니다.
-오른쪽과 같이 do-operator를 적용하여 상상속에서 Backdoor Path를 차단한다면, $T$노드가 $Y$노드와 인과적 연관성을 쉽게(?) 구할 수 있어보입니다.
+오른쪽과 같이 do-operator를 적용하여 상상속에서 Backdoor Path를 차단한다면, $T$노드와 $Y$노드의 인과적 연관성을 쉽게(?) 구할 수 있어보입니다.
 
 그런데 do-operator가 추상적 개념인데 이것을 도대체 어떻게 계산할 수 있다는 것일까요?
 do-operator로 표현한 그래프는 실제로 계산이 가능한 조건부확률의 형태로 변환하여 계산할 수 있는데, Judea Pearl 교수님은 이를 가능하도록 하는 일종의 수학적 규칙 집합인 `do-calculus`를 제안했습니다.
