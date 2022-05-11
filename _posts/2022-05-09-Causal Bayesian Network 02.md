@@ -94,7 +94,7 @@ use_math: true
   + <span style='background-color: #fff5b1'>정리된 좌변</span>과 <span style='background-color: #f5f0ff'>정리된 우변</span>을 이용하여
     + $P(C)P(X,Y\|C)=P(X\|C)P(Y\|C)P(C)$
     + $P(X,Y\|C)=P(X\|C)P(Y\|C)$가 성립됨
-  + 따라서, `C`를 Conditioning하면 $P(X,Y\|C)=P(X\|C)P(Y\|C)$가 성립되어 $X$와 $Y$는 조건부 독립이되므로, 두 변수 간 Association이 사라짐
+  + 따라서, `C`를 Conditioning하면 $P(X,Y\|C)=P(X\|C)P(Y\|C)$가 성립되어 $X$와 $Y$는 독립이되므로, 두 변수 간 Association이 사라짐
 
 # 03. Collider
 <img src="/assets/img/2022-05-09-Causal Bayesian Network 02/collider01.png" width="40%"/><br>
@@ -121,8 +121,8 @@ use_math: true
 
 ## $C$를 Conditioning하면, $X$와 $Y$ 간에 Association이 ***<u>생겨남</u>***을 증명
   + `C`를 Conditioning 할 때 $X$와 $Y$ 간에 Association이 있는지를 알고싶기 때문에, `(좌변)`$P(X,Y\|C)=$ `(우변)`$P(X\|C)P(Y\|C)$인지 확인해야 함
-  + 그러나, Collider의 경우, 위의 식이 아닌, `(좌변)`$P(X\|C)=$`(우변)`$P(X\|C,Y)$가 성립하는지를 대신하여 검토함으로써 조건부 독립 여부를 확인할 수 있음
-    + (설명) `(좌변)`과 달리, `(우변)`에서는 $Y$까지 Conditioning 하였는데, 위를 만족할 경우, $C$가 Conditioning 되어있다면 이미 조건부 독립이 성립하여, $Y$가 추가로 Conditioning 되는지 여부가 아무런 영향을 주지 않는다고 해석할 수 있음
+  + 그러나, Collider의 경우, 위의 식이 아닌, `(좌변)`$P(X\|C)=$`(우변)`$P(X\|C,Y)$가 성립하는지를 대신하여 검토함으로써 독립 여부를 확인할 수 있음
+    + (설명) `(좌변)`과 달리, `(우변)`에서는 $Y$까지 Conditioning 하였는데, 위를 만족할 경우, $C$가 Conditioning 되어있다면 이미 독립이 성립하여, $Y$가 추가로 Conditioning 되는지 여부가 아무런 영향을 주지 않는다고 해석할 수 있음
   + `(좌변)`$P(X\|C)$을 이용하여
     + $P(X\|C)$
     + $=\cfrac{P(X)P(C\|X)}{P(C)}$ <span style='background-color: #fff5b1'>정리된 좌변</span>
@@ -134,7 +134,7 @@ use_math: true
         + $P(X\|Y)P(C\|Y,X) = P(C\|Y)P(X\|Y,C)$
         + $\cfrac{P(X\|Y)P(C\|Y,X)}{P(C\|Y)} = P(X\|Y,C) = P(X\|C,Y)$ <span style='background-color: #f5f0ff'>정리된 우변</span>
   + <span style='background-color: #fff5b1'>정리된 좌변</span>과 <span style='background-color: #f5f0ff'>정리된 우변</span>을 이용하여
-    + $\cfrac{P(X)P(C\|X)}{P(C)} = \cfrac{P(X\|Y)P(C\|Y,X)}{P(C\|Y)}$이라면 $X$와 $Y$는 조건부 독립이 성립함
+    + $\cfrac{P(X)P(C\|X)}{P(C)} = \cfrac{P(X\|Y)P(C\|Y,X)}{P(C\|Y)}$이라면 $X$와 $Y$는 독립이 성립함
     + 이를 정리하면, $\cfrac{P(C\|X)}{P(C)} = \cfrac{P(C\|Y,X)}{P(C\|Y)}$로 표현할 수 있음
       + (설명) Collider에서는 $Y$를 Conditioning 하는지 여부와 상관없이 독립이므로, $P(X)=P(X\|Y)$가 성립함
   + 따라서, $\cfrac{P(C\|X)}{P(C)} = \cfrac{P(C\|Y,X)}{P(C\|Y)}$가 성립하는지를 확인하면 됨
