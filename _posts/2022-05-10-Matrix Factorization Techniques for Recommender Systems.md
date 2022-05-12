@@ -1,7 +1,7 @@
 ---
 title: Matrix Factorization Techniques for Recommender Systems
 author: simon sanghyeon
-date: 2022-05-09
+date: 2022-05-10
 categories: [Recommender System]
 tags: [Matrix Factorization, Recommender System]
 render_with_liquid: true
