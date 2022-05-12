@@ -215,3 +215,8 @@ nx.draw_networkx(graph_pc, font_size=18, font_color='r')
 
 아쉽게도 Causal Graph 자체를 정확하게 검증할 수 있는 방법은 세상에 없다고 합니다.
 그만큼 훗날, Causal Discovery 방법론들이 이러한 한계점을 극복할 수 있는 대안이 될 수 있을 것입니다.
+
+# 참고자료
+[1] [인과추론의 데이터과학](https://www.youtube.com/channel/UCkEHnPq2T8Vpafk3p-Rk49A)<br>
+[2] Introduction to Causal Inference (Brady Neal)
+[3] [Causal Discovery- Shawhin Talebi의 블로그](https://towardsdatascience.com/causal-discovery-6858f9af6dcb)
