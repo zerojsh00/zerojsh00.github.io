@@ -10,8 +10,7 @@ use_math: true
 이 포스트는 개인적으로 공부한 내용을 정리하고 필요한 분들에게 지식을 공유하기 위해 작성되었습니다.<br>
 지적하실 내용이 있다면, 언제든 댓글 또는 메일로 알려주시기를 바랍니다.
 
->본 포스트 내용은 [`Matrix Factorization Techniques for Recommender Systems
-`](https://ieeexplore.ieee.org/abstract/document/5197422?casa_token=koHMfxCryxQAAAAA:8sweUI4hv7luPHbeE8jNzIPmWaZP4YACeO-vx1Uv9JA86CjzssyNPh-lzdArhCKBd1pL4cgDOQ)을 번역한 글입니다.
+>본 포스트 내용은 [`Matrix Factorization Techniques for Recommender Systems`](https://ieeexplore.ieee.org/abstract/document/5197422?casa_token=koHMfxCryxQAAAAA:8sweUI4hv7luPHbeE8jNzIPmWaZP4YACeO-vx1Uv9JA86CjzssyNPh-lzdArhCKBd1pL4cgDOQ)을 번역한 글입니다.
 
 # 00. Abstract
 Netflix Prize competition에서 알 수 있듯, matrix factorization 기법은 implicit feedback, temporal effects, confidence level 등 부수적인 정보들을 아우를 수 있다는 점에서 전통적인 방식보다 제품을 추천하는 데 용이하다.
