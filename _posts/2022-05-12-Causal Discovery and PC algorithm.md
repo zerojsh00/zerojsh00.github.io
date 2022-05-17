@@ -218,5 +218,5 @@ nx.draw_networkx(graph_pc, font_size=18, font_color='r')
 
 # 참고자료
 [1] [인과추론의 데이터과학](https://www.youtube.com/channel/UCkEHnPq2T8Vpafk3p-Rk49A)<br>
-[2] Introduction to Causal Inference (Brady Neal)
+[2] Introduction to Causal Inference (Brady Neal)<br>
 [3] [Causal Discovery- Shawhin Talebi의 블로그](https://towardsdatascience.com/causal-discovery-6858f9af6dcb)
