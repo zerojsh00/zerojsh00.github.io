@@ -12,7 +12,7 @@ use_math: true
 
 > 본 글은 [ratsgo님의 speech book](https://ratsgo.github.io/speechbook/)을 공부하고 정리한 글임을 밝힙니다.
 
-# Wave
+# 01. Wave
 
 - 단순파 웨이브 (simple wave)
     - $x$축은 시간을 의미하며 $y$축은 음압(sound pressure)이 사용됨
@@ -34,7 +34,7 @@ use_math: true
 
 ---
 
-# Digitization
+# 02. Digitization
 
 ![fig03](/assets/img/2022-07-19-Acoustic Phonetics/fig03.png)
 
@@ -71,7 +71,7 @@ use_math: true
 
 ---
 
-# Loudness
+# 03. Loudness
 
 ![fig05](/assets/img/2022-07-19-Acoustic Phonetics/fig05.png)
 
@@ -85,7 +85,7 @@ use_math: true
 
 ---
 
-# Pitch
+# 04. Pitch
 
 - 음의 높낮이를 의미하며, 주파수와 관련이 있음
 - 구간에 따른 주파수와 pitch의 관계
@@ -94,3 +94,44 @@ use_math: true
     - 즉, 인간은 저주파에 대해서 세밀하게 인식하고, 고주파는 세밀하게 인식하지 못함
 - 사람이 인식하는 음의 높낮이 차이가 비슷하도록 주파수 영역대를 구분하여 pitch의 단계를 나눈 것이 `멜 스케일(mel scale)`임
     - $m=1127ln(1+\cfrac{f}{700})$
+
+---
+# 05. 인간의 음성 인식
+
+## lexical access
+
+- 사람은 음성을 단어 단위로 인식하는데, 그 특성은 아래와 같음
+- **frequency**
+    - 빈도 높은 단어를 빠르게 인식함
+- **parallelism**
+    - 여러 단어(예컨대 두 명의 화자가 발화)를 한번에 알아들을 수 있음
+- **cue-based processing**
+    - 인간의 음성 인식은 다양한 단서(cue)에 기반함
+
+## cue-based processing
+
+### 음성적 단서(acoustic cue) 기반의 인식
+
+- 포만트(formant)
+    - 포만트란, 스펙트럼에서 음향 에너지가 몰려 있는 봉우리를 가리키며, 어떤 주파수 영역대에서 형성되어 있는지에 따라 사람이 말소리를 다르게 인지함
+- 성대 진동 개시 시간(voice onset time)
+    - 성대 진동 개시 시간은 무성폐쇄음(ㅍ)의 개방 단계 후에 후행하는 모음을 위해 성대가 진동하는 시간 사이의 기간을 의미하며, 말소리에서 유성자음과 무성자음을 식별하는 단서임
+
+### 어휘적 단서(lexical cue) 기반의 인식
+
+- 음소 복원 현상(phonemic restoration effect)
+    - 단어를 이루는 음소(phenome) 가운데 하나를 기침 소리로 대체하더라도 해당 음소를 들은 것으로 인지한다는 개념으로, 청자가 해당 어휘를 이미 알고 있기 때문임
+
+### 시각적 단서(visual cue) 기반의 인식
+
+- 맥거크 효과(McGurk effect)
+    - 입모양 또는 기타 다른 감각 정보의 영향으로 실제와는 다른 소리로 지각되는 현상을 의미하며, ‘ga’를 발음하는 영상을 보여주면서 ‘ba’ 소리를 들려주면 ‘da’라고 알아들음
+
+## on-line processing
+
+- 실시간 인식
+    - 인간은 단어 세분화(word segmentation), 구문 분석(parsing), 그리고 해당 문장 해석(interpretation)까지 250ms 안에 처리할 수 있는 능력을 가짐
+
+---
+# 06. 참고 문헌
+[1] [ratsgo 님의 블로그](https://ratsgo.github.io/speechbook/docs/neuralfe/wav2vec)<br>
