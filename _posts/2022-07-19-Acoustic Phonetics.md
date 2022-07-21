@@ -3,7 +3,7 @@ title: (Speech Recognition) Phonetics
 author: simon sanghyeon
 date: 2022-07-19
 categories: [Speech Recognition]
-tags: [Phonetics]
+tags: [Speech AI, Phonetics]
 render_with_liquid: true
 use_math: true
 ---
