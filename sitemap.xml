@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://zerojsh00.github.io/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/categories/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/archives/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/about/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Wav2Vec/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/MFCC/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Acoustic-Phonetics/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Traditional-ASR/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Euler's-Formula/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Bayes'-Theorem/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Causal-Discovery-and-PC-algorithm/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Query2Box/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Matrix-Factorization-Techniques-for-Recommender-Systems/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Causal-Bayesian-Network-02/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/page2/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/speech-ai/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/causal-inference/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/root-cause-analysis/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/bayesian-network/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/feature-extraction/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/probabilistic-graphical-models/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/asr/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/bayes-theorem/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/causal-discovery/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/euler-s-formula/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/categories/causal-inference/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/categories/knowledge-graph/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/categories/recommender-system/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/categories/speech-recognition/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/categories/statistics-mathmatics/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/gmm/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/hmm/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/knowledge-graph/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/matrix-factorization/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/mfcc/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/phonetics/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/reasoning/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/recommender-system/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/tags/wav2vec/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Causal-Bayesian-Network-01/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Causal-Inference-02/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zerojsh00.github.io/posts/Causal-Inference-01/</loc>
+  <lastmod>2022-07-21T14:48:51+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
