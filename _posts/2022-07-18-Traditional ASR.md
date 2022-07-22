@@ -1,7 +1,7 @@
 ---
 title: (Speech Recognition) 고전적 음성 인식 기술의 개요
 author: simon sanghyeon
-date: 2022-07-19
+date: 2022-07-18
 categories: [Speech Recognition]
 tags: [ASR, Speech AI, HMM, GMM]
 render_with_liquid: true
