@@ -50,7 +50,7 @@ blank token $\epsilon$은 왜 필요한 것일까? 만약, 음성 신호 sequenc
 
 ## 훑어보는 CTC 알고리즘의 decoding
 
-![fig03](/assets/img/2022-07-25-Connectionist Temporal Classification/fig03.png){: width="300" height="300"}
+![fig03](/assets/img/2022-07-25-Connectionist Temporal Classification/fig03.png)
 
 위 그림은 CTC 알고리즘으로 학습을 마친 모델이 최종적으로 음성 신호 sequence를 decoding 하는 방식을 도식화한 것이다. 우선적으로 반복되는 token을 병합하고, $\epsilon$ blank token을 제거함으로써 최종 출력 sequence를 완성한다.
 
