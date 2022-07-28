@@ -146,5 +146,5 @@ conformer도 모델의 크기에 따라서 Conformer(S), Conformer(M), Conformer
 # 05. 참고 문헌
 
 [1] `원 논문` : [Gulati, Anmol, et al. "Conformer: Convolution-augmented transformer for speech recognition." arXiv preprint arXiv:2005.08100 (2020).](https://arxiv.org/abs/2005.08100)<br>
-[2] `Macaron-Net` : [Lu, Yiping, et al. "Understanding and improving transformer from a multi-particle dynamic system point of view." arXiv preprint arXiv:1906.02762 (2019).](Understanding and Improving Transformer From a Multi-Particle Dynamic System Point of View)<br>
+[2] `Macaron-Net` : [Lu, Yiping, et al. "Understanding and improving transformer from a multi-particle dynamic system point of view." arXiv preprint arXiv:1906.02762 (2019).](https://arxiv.org/abs/1906.02762)<br>
 [3] `Shallow Fusion` : [Cabrera, Rodrigo, et al. "Language model fusion for streaming end to end speech recognition." arXiv preprint arXiv:2104.04487 (2021).](https://www.arxiv-vanity.com/papers/2104.04487/)
