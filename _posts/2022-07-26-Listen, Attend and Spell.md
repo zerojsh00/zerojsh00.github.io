@@ -3,7 +3,7 @@ title: (Speech Recognition) Listen, Attend and Spell (LAS) 톺아보기
 author: simon sanghyeon
 date: 2022-07-26
 categories: [Speech Recognition]
-tags: [Speech AI, ASR, End to End]
+tags: [Speech AI, ASR, End to End, Paper Review]
 render_with_liquid: true
 use_math: true
 ---
