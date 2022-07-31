@@ -1,5 +1,5 @@
 ---
-title: (Speech Recognition) Connectionist Temporal Classification 톺아보기
+title: (Speech Recognition) Connectionist Temporal Classification 리뷰 및 설명
 author: simon sanghyeon
 date: 2022-07-25
 categories: [Speech Recognition]

@@ -13,7 +13,7 @@ use_math: true
 
 # 00. 들어가며
 
-음성 인식에서 [VQ-Wav2Vec](https://zerojsh00.github.io/posts/VQWav2Vec/) 모델이나, Wav2Vec 2.0 등에서 `Vector Quantization` 또는 `Codebook` 등과 같은 용어들이 자주 나온다.
+음성 인식에서 [VQ-Wav2Vec](https://zerojsh00.github.io/posts/VQWav2Vec/) 모델이나, [Wav2Vec 2.0](https://zerojsh00.github.io/posts/Wav2Vec2/) 등에서 `Vector Quantization` 또는 `Codebook` 등과 같은 용어들이 자주 나온다.
 
 Quantization이라는 용어는 Distillation이나 Pruning 기법과 함께 거대 AI 모델을 경량화 하는 기법으로 흔히 알고는 있다.
 

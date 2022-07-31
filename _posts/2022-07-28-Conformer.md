@@ -1,5 +1,5 @@
 ---
-title: (Speech Recognition) Conformer 톺아보기
+title: (Speech Recognition) Conformer 리뷰 및 설명
 author: simon sanghyeon
 date: 2022-07-28
 categories: [Speech Recognition]

@@ -1,5 +1,5 @@
 ---
-title: (Speech Recognition) Listen, Attend and Spell (LAS) 톺아보기
+title: (Speech Recognition) Listen, Attend and Spell (LAS) 리뷰 및 설명
 author: simon sanghyeon
 date: 2022-07-26
 categories: [Speech Recognition]
