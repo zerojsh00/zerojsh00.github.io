@@ -1,5 +1,5 @@
 ---
-title: (K8S) Namespaces
+title: (K8S) 네임스페이스
 author: simon sanghyeon
 date: 2022-08-09
 categories: [Kubernetes]
