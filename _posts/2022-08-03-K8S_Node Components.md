@@ -3,7 +3,7 @@ title: (K8S) 노드 컴포넌트
 author: simon sanghyeon
 date: 2022-08-03
 categories: [Kubernetes]
-tags: [Kubernetes, k8s, architecture]
+tags: [Kubernetes, K8S, Architecture]
 render_with_liquid: true
 # use_math: true
 ---

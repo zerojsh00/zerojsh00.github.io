@@ -3,7 +3,7 @@ title: (K8S) 컨트롤 플레인 컴포넌트
 author: simon sanghyeon
 date: 2022-08-02
 categories: [Kubernetes]
-tags: [Kubernetes, k8s, architecture]
+tags: [Kubernetes, K8S, Architecture]
 render_with_liquid: true
 # use_math: true
 ---

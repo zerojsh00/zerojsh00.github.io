@@ -3,7 +3,7 @@ title: (K8S) 레플리케이션 컨트롤러와 레플리카셋
 author: simon sanghyeon
 date: 2022-08-04
 categories: [Kubernetes]
-tags: [Kubernetes, k8s, replicaset]
+tags: [Kubernetes, K8S, Replicaset]
 render_with_liquid: true
 # use_math: true
 ---

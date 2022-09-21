@@ -3,7 +3,7 @@ title: (K8S) 디플로이먼트
 author: simon sanghyeon
 date: 2022-08-07
 categories: [Kubernetes]
-tags: [Kubernetes, k8s, deployment]
+tags: [Kubernetes, KL8S, Deployment]
 render_with_liquid: true
 # use_math: true
 ---
