@@ -1,5 +1,5 @@
 ---
-title: (K8S) 서비스(Service) 타입 - NodePort
+title: (K8S) 서비스(Service) 타입 - NodePort & LoadBalancer
 author: simon sanghyeon
 date: 2022-08-08
 categories: [Kubernetes]
@@ -12,11 +12,13 @@ render_with_liquid: true
 ---
 
 앞서 쿠버네티스 환경에서 [서비스(Service)의 개요와 종류](https://zerojsh00.github.io/posts/K8S_Service/)를 간단히 살펴보았다.
-이번에는 서비스의 종류 중 `NodePort` 서비스를 살펴보고자 한다.
+이번에는 서비스의 종류 중 `NodePort` 및 `LoadBalancer` 타입의 서비스를 살펴보고자 한다.
+
+ClusterIP에 대한 포스트는 [여기](https://zerojsh00.github.io/posts/K8S_Service-ClusterIP/)를 참고하자.
 
 # NodePort 서비스란?
 
-![fig01](/assets/img/2022-08-08-K8S_Service-NodePort/fig01.png)
+![fig01](/assets/img/2022-08-08-K8S_Service-NodePort,%20LoadBalancer/fig01.png)
 
 `NodePort` 서비스 타입은 '노드 포트'라는 명칭대로, 노드의 특정 포트(그림에서 30008)를 개방해 서비스에 접근하는 방식이다.
 
@@ -27,9 +29,7 @@ NodePort 서비스 타입은 서비스를 중심으로 총 3개의 포트를 사
 - `Target Port` : 최종 목적지인 파드의 포트
     - 별도로 지정하지 않으면 Port와 같은 값으로 지정된다.
 
----
-
-# NodePort 정의하기
+## NodePort 정의하기
 
 ```yaml
 # service-definition.yaml
@@ -75,9 +75,7 @@ spec: # 가장 중요한 부분
 
 위와 같이 포트를 노출해준 후 서비스를 생성해주면, 클러스터 외부에서 노드의 특정 포트(e.g., 30008)를 경유하여 내부 파드로 접근할 수 있게 된다. 예를 들어, `curl http://192.168.1.2:30008`와 같이 확인해볼 수 있다.
 
----
-
-# selector를 사용해도 동일한 내용의 파드가 여러 개 존재한다면?
+## selector를 사용해도 동일한 내용의 파드가 여러 개 존재한다면?
 위와 같이 `selector` 섹션에서 파드의 labels를 지정하여 특정 파드의 포트와 매핑하였지만, 이러한 파드 자체가 여러 개 존재한다면, 어떤 파드에 load를 부여할지 어떻게 선택할까?
 
 - (Case1) **하나의 노드**에 있는 labels가 동일한 파드들이라면, random 알고리즘으로 그냥 무작위로 파드를 선택해서 연결한다.
@@ -86,6 +84,13 @@ spec: # 가장 중요한 부분
         - `curl http://192.168.1.2:30008`
         - `curl http://192.168.1.3:30008`
         - `curl http://192.168.1.4:30008`
+
+---
+
+# LoadBalancer 서비스란?
+`LoadBalancer` 타입의 서비스는 서비스 생성과 동시에 로드밸런서를 새롭게 생성해 파드와 연결한다.
+NodePort를 사용할 때는 각 노드의 IP를 알아야만 파드에 접근할 수 있었으나, LoadBalancer 타입의 서비스는 클라우드 플랫폼(GCP, AWS, Azure)으로부터 도메인 이름과 IP를 할당받기 때문에 NodePort보다 더욱 쉽게 파드에 접근할 수 있다.
+단, LoadBalancer 타입의 서비스는 로드 밸런서를 동적으로 생성하는 기능을 제공하는 환경만 사용할 수 있다. 일반적으로 AWS, GCP, Azure 등과 같은 클라우드 플랫폼 환경에서만 사용할 수 있으며, 가상 머신이나 온프레미스 환경에서는 사용하기 어려울 수 있다.
 
 ---
 
