@@ -35,7 +35,7 @@ spec:
   nodeName: node02 # 아래 설명을 참고할 것
 ```
 
-위와 같이 `nodeName` field가 "node02"처럼 직접 명시되어 있는 파드는 `스케줄러(scheduler)`가 해당 파드를 스케줄링 하지 않으며, nodeName에 명시된 노드(e.g., node02)의 `kubelet`이 해당 파드를 해당 노드에서 실행한다..
+위와 같이 `nodeName` field가 "node02"처럼 직접 명시되어 있는 파드는 `스케줄러(scheduler)`가 해당 파드를 스케줄링 하지 않으며, nodeName에 명시된 노드(e.g., node02)의 `kubelet`이 해당 파드를 해당 노드에서 실행한다.
 
 ![fig01](/assets/img/2022-08-10-K8S_Scheduling-manual/fig01.png)
 
