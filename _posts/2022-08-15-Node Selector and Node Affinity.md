@@ -119,7 +119,7 @@ spec:
 - <span style='background-color: #81D3EB'>preferred</span><span style='background-color: #D5E05B'>DuringScheduling</span><span style='background-color: #B0DFDB'>Ignored</span><span style='background-color: #BBB8DC'>DuringExecution</span>
 
 ### DuringScheduling
-<span style='background-color: #D5E05B'>DuringScheduling</span>이란, 아직 파드가 존재하지 않는 상태이며, 처음으로 파드가 생성되는 시점을 의미한다.
+<span style='background-color: #D5E05B'>DuringScheduling</span>이란, **아직 파드가 존재하지 않는 상태**이며, 처음으로 파드가 생성되는 시점을 의미한다.
 
 속성이 <span style='background-color: #FFCC4E'>required</span>로 설정되어 있다면, 파드를 노드에 배치함에 있어 `어피니티 규칙(affinity rule)`에 의한 matching이 필수인 경우를 의미한다.
 즉, 스케줄러는 파드가 처음 생성될 때 어피니티 규칙에 따라 노드에 배치되도록 지시하는데, 만약 어피니티 규칙에 따라 matching되는 노드가 없으면, 파드는 스케줄링되지 않는다.
@@ -128,7 +128,7 @@ spec:
 속성이 <span style='background-color: #81D3EB'>preferred</span>로 설정되어 있다면, 파드를 노드에 배치함에 있어 우선적으로 어피니티 규칙을 고려하되, 어피니티 규칙에 matching되는 노드가 없는 경우에는 아무 노드에 배치될 수 있다. 이는 파드가 특정 노드에 배치되도록 설정하는 것이 선호되기는 하지만 필수는 아닌 상황에서 사용된다.
 
 ### DuringExecution
-<span style='background-color: #BBB8DC'>DuringExecution</span>이란, 파드가 이미 만들어져 있고 특정 노드 상에서 실행 중에 있는데, 노드의 레이블이 변경되는 상황과 같이 노드 어피니티에 영향을 주는 변화가 있는 시점을 의미한다.
+<span style='background-color: #BBB8DC'>DuringExecution</span>이란, 파드가 이미 만들어져 있고 특정 노드 상에서 실행 중에 있는데, **노드의 레이블이 변경되는 상황과 같이 노드 어피니티에 영향을 주는 변화가 있는 때**를 의미한다.
 예를 들어, 실행 중인 파드는 어피니티 규칙에 의해 `size:Large`로 레이블된 노드에서 실행되고 있는데, 노드의 레이블이 바뀌면 파드는 계속 실행될 수 있는 것인지를 이 부분에서 설정한다.
 
 속성이 <span style='background-color: #B0DFDB'>Ignored</span>로 설정되어 있기 때문에 노드 어피니티에 영향을 주는 변화가 있어도 파드는 이를 무시하고 계속해서 실행된다.
