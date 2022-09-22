@@ -111,7 +111,7 @@ spec:
 심지어 values 값을 모를 때는 Exists라는 operator를 사용하고 values를 생략할 수도 있다.
 참고로, `values` 값에는 더욱 다양하게 값들을 여러 개를 나열할 수 있다.
 
-## 노드 어피니티의 속성
+## 노드 어피니티의 속성 : matchExpression에 대응되는 노드가 없는 경우
 만약, 노드 어피니티를 위해 파드 정의 YAML 파일에서 설정한 `matchExpression`에 대응되는 노드가 없다면 어떻게 될까? 또는, 미래에 누군가가 노드의 레이블을 바꾸어버린다면, 위와 같은 설정으로 만들어진 파드는 계속해서 해당 노드에서 실행될까? 이러한 이슈는 `requiredDuringSchedulingIgnoredDuringExecution`처럼 긴 속성으로 해결할 수 있다.
 
 현재 지원되는 노드 어피니티의 속성 값은 아래와 같다.
