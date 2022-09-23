@@ -10,7 +10,7 @@ render_with_liquid: true
 이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다.
 
 ---
-# 마스터 노드(컨트롤 플레인)이 없는 상황 가정
+# 마스터 노드(컨트롤 플레인)가 없는 상황 가정
 어떤 파드를 어떤 노드에 배포할지 `kube-scheduler`가 결정하면, 각각의 워커 노드에 존재하는 `kubelet`은 `kubeapi-server`로부터 자신의 노드에서 어떤 파드를 어떻게 처리해야 하는지에 대한 명령을 듣고 실행한다.
 
 만약 마스터 노드(컨트롤 플레인)의 컴포넌트들인 kube-apiserver, kube-scheduler, ETCD cluster, controller manager 등이 존재하지 않는다면 어떻게 될까?
