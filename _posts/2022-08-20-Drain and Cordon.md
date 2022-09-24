@@ -1,7 +1,7 @@
 ---
 title: (K8S) Drain과 Cordon
 author: simon sanghyeon
-date: 2022-08-19
+date: 2022-08-20
 categories: [Kubernetes]
 tags: [Kubernetes, K8S, Drain, Cordon]
 render_with_liquid: true
