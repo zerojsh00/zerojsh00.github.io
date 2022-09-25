@@ -57,6 +57,27 @@ certificate의 유효함을 인증하기 위해서 `Certificate Signing Request(
 한편, 사용자의 브라우저에는 기본적으로 CA의 public key들이 존재한다. 따라서 CA 자체가 가짜인지는 브라우저에서 구별될 수 있다.
 
 ---
+# 쿠버네티스에서의 TLS
+
+![fig06](/assets/img/2022-08-21-Security Basics/fig06.png)
+
+CA에서 사용하는 public key(lock)와 private key를 `Root Certificates` 라고 하며, 클라이언트와 서버의 것들을 각각 `Client Certificates`, `Server Certificates` 라고 한다. 이러한 개념들이 쿠버네티스 클러스터에서 어떻게 적용되는지 살펴보겠다.
+
+쿠버네티스 클러스터는 복수의 노드, 즉, 마스터 노드와 워커 노드들로 구성되어 있다. 이 노드들 간의 통신 또한 보안이 되어야 하며, 암호화되어 처리돼야 한다. 예를 들어, kubectl을 통하여 클러스터에 접근하거나 kube-apiserver에 직접 접근하는 경우 모두 TLS 보안 연결이 설정되어야 한다. 또한 쿠버네티스 클러스터 내 모든 컴포넌트들 간의 통신에도 TLS 보안 연결이 설정되어야 한다.
+
+## 쿠버네티스에서의 Server Certificates
+
+![fig07](/assets/img/2022-08-21-Security Basics/fig07.png)
+
+server certificates는 어느 곳에서 필요할까? 쿠버네티스 아키텍처에서 요청을 받아들이는 역할이 있는 곳들인 kube-apiserver와 ETCD server, kubelet server에서 각각 존재할 것이다.
+
+## 쿠버네티스에서의 Client Certificates
+
+![fig08](/assets/img/2022-08-21-Security Basics/fig08.png)
+
+또한, client cetificates의 경우는 다른 컴포넌트로 요청을 받아들이는 역할이 있는 곳들에 존재한다. kube-apiserver의 인증이 필요한 관리자(admin user), 파드 스케줄링을 위해 kube-apiserver와 통신해야 하는 kube-scheduler 컴포넌트, 그리고 기타 kube-apiserver와 통신하는 kube-controller manager 컴포넌트나 kube-proxy 등도 모두 client certificates가 되어야 한다. 한편 ETCD server나 kubelet server의 관점에서는 kube-apiserver가 요청을 보내는 입장으로서 클라이언트가 되므로, client certificates를 별도로 갖추어야 한다.
+
+---
 # 참고 문헌
 
 [1] `Mumshad Mannambeth의 강의` : [Certified Kubernetes Administrator (CKA) with Practice Tests](https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/)<br>
