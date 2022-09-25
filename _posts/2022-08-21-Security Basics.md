@@ -3,7 +3,7 @@ title: (K8S) TLS 보안 기초 개념 정리
 author: simon sanghyeon
 date: 2022-08-21
 categories: [Kubernetes]
-tags: [Kubernetes, K8S, Security, Authentication]
+tags: [Kubernetes, K8S, Security, Encryption, Certificate]
 render_with_liquid: true
 # use_math: true
 ---
