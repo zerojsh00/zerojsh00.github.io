@@ -1,5 +1,5 @@
 ---
-title: (K8S) 인가(Authorization)의 기초 개념
+title: (K8S) 쿠버네티스 인가(Authorization)의 기초 개념
 author: simon sanghyeon
 date: 2022-08-23
 categories: [Kubernetes]
