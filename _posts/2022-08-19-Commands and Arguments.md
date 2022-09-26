@@ -34,7 +34,7 @@ nginx를 설치하고 실행하는 이 도커 파일을 보면, 마지막 CMD �
 # [Docker] ubuntu sleep 명령 예제를 통해 살펴보는 CMD와 ENTRYPOINT
 ## 도커 파일의 CMD
 
-`docker run ubuntu sleep 5` 명령을 입력하면, 실행 즉시 5초 동안 sleep 한 후 종료되는 우분투 컨테이너가 실행된다. 위와 같은 명령어는 command line에 파라미터를 이용해서 단 한번만 단편적으로 실행되우도록 한다.
+`docker run ubuntu sleep 5` 명령을 입력하면, 실행 즉시 5초 동안 sleep 한 후 종료되는 우분투 컨테이너가 실행된다. 위와 같은 명령어는 command line에 파라미터를 이용해서 단 한번만 단편적으로 실행되도록 한다.
 
 이러한 sleep 명령을 다음과 같이 아예 도커 파일에 정의하면, 매번 이미지를 실행할 때마다 5초간 sleep 후 종료되는 컨테이너를 만들 수 있다.
 
