@@ -72,7 +72,6 @@ token:      eyJhbGciOiJSUzI1NiIsImt ... 생략 ...
 이 예에서 예로 들은 K8S 대시보드와 같은 third-party application에서는 service account 토큰을 컨피그로 지정해서 사용할수도 있다.
 
 ---
-
 # default service account
 
 한편, `kubectl get serviceaccount` 명령을 입력해보면, 다음과 같이 `default service account`가 생성되어 있는 것을 확인할 수 있다.
@@ -106,7 +105,6 @@ spec:
 
 ---
 # 직접 생성한 service account 사용하기
-
 default service account가 아닌, 직접 만든 service account를 사용하기 위해서는 아래와 같이 파드 설정 YAML 파일에 `serviceAccountName 설정`을 추가해주면 된다.
 
 ```yaml
