@@ -109,9 +109,18 @@ CoW의 문제를 해결하는 방법으로 `volume mount`를 통해 컨테이너
 만약, 도커 호스트 내 어떤 곳에 이미 데이터가 존재한다면, 해당 데이터의 경로를 컨테이너에 `bind mount` 할 수 있다. 이 경우, `docker run -v {데이터가 존재하는 절대 경로}:{컨테이너_내의_경로} {이미지 이름}` 명령을 실행하여 bind mount 할 수 있다. 정리하자면, bind mount를 통해 도커 호스트 내 어떤 경로든 컨테이너와 마운트 할 수 있는 것이다.
 
 ---
-# Storage Drivers
+# Storage Driver
 
 지금까지 살펴보았듯, 컨테이너를 실행할 때 write가 가능한 컨테이너 레이어를 만들고, 이미지 레이어로부터 파일을 복사하는 등, 스토리지와 관련한 일련의 과정을 수행하는 주체를 `storage driver`라고 부른다. storage driver는 `AUFS`, `ZFS`, `BTRFS`, `Device Mapper`, `Overlay`, `Overlay2` 등이 있으며, OS에 따라서 어떤 storage driver를 사용할지가 자동으로 결정된다. 예를 들어, 우분투의 경우 default로 AUFS를 사용한다.
+
+---
+# Volume Driver Plugins in Docker
+
+앞서, 컨테이너나 이미지의 스토리지를 관리하는 `storage drivers`를 살펴보았다. 또한 스토리지를 영구적으로 사용하기 위해서는 볼륨을 생성해서 마운트해야 하는 것 또한 살펴보았다.
+
+이때, 볼륨은 storage driver에 의해서 관리되지 않는다. 볼륨은 `volume driver`에 의해서 관리된다. volume driver의 default volume driver로는  `Local`이 있다. Local 볼륨은 도커 호스트에서 볼륨을 생성하고, `/var/lib/docker/volumes` 경로에 데이터를 저장하도록 관리하는 역할을 수행한다. 이외에도 서드파티 솔루션에 마운트가 가능하도록 지원해주는 volume driver의 종류는 매우 다양한데, `Azure File Storage`, `Convoy`, `DigitalOcean Block Storage`, `Flocker`, `gce-docker`, `GlusterFS`, `NetApp`, `RexRay`, `Portworx`, `VMware vSphere Storage` 등이 있다.
+
+`docker run --volume-driver {volume_driver_이름}` 명령으로 원하는 volume driver를 지정하여 마운트해 사용할 수 있다.
 
 ---
 # 참고 문헌
