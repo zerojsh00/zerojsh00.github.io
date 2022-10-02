@@ -1,5 +1,5 @@
 ---
-title: (K8S) Security Contexts
+title: (K8S) Security Context
 author: simon sanghyeon
 date: 2022-08-29
 categories: [Kubernetes]
