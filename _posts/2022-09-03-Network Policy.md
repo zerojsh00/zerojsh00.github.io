@@ -42,7 +42,7 @@ spec:
     matchLabels:
       role: db
   policyTypes: # ingress 트래픽에 대해 규칙을 정의한다.
-  - Ingress
+  - 2022-09-17-Ingress
   ingress:
   - from: # 아래 레이블에 매치되는 파드(api-pod, 즉 백 엔드 파드)로부터 들어오는 ingress 트래픽
     - podSelector:
