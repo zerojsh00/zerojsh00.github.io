@@ -1,0 +1,277 @@
+<!DOCTYPE html><html lang="ko" ><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="generator" content="Jekyll v4.3.2" /><meta property="og:title" content="(K8S) 쿠버네티스 환경변수 설정, 컨피그맵(ConfigMap)과 시크릿(Secret)" /><meta name="author" content="simon sanghyeon" /><meta property="og:locale" content="ko" /><meta name="description" content="이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다." /><meta property="og:description" content="이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다." /><link rel="canonical" href="https://zerojsh00.github.io/posts/Configure-Environment-Variables/" /><meta property="og:url" content="https://zerojsh00.github.io/posts/Configure-Environment-Variables/" /><meta property="og:site_name" content="Simon’s Research Center" /><meta property="og:type" content="article" /><meta property="article:published_time" content="2022-08-19T00:00:00+09:00" /><meta name="twitter:card" content="summary" /><meta property="twitter:title" content="(K8S) 쿠버네티스 환경변수 설정, 컨피그맵(ConfigMap)과 시크릿(Secret)" /><meta name="twitter:site" content="@" /><meta name="twitter:creator" content="@simon sanghyeon" /> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"simon sanghyeon"},"dateModified":"2022-08-19T00:00:00+09:00","datePublished":"2022-08-19T00:00:00+09:00","description":"이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다.","headline":"(K8S) 쿠버네티스 환경변수 설정, 컨피그맵(ConfigMap)과 시크릿(Secret)","mainEntityOfPage":{"@type":"WebPage","@id":"https://zerojsh00.github.io/posts/Configure-Environment-Variables/"},"url":"https://zerojsh00.github.io/posts/Configure-Environment-Variables/"}</script><title>(K8S) 쿠버네티스 환경변수 설정, 컨피그맵(ConfigMap)과 시크릿(Secret) | Simon's Research Center</title><link rel="apple-touch-icon" sizes="180x180" href="/assets/img/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/img/favicons/favicon-16x16.png"><link rel="manifest" href="/assets/img/favicons/site.webmanifest"><link rel="shortcut icon" href="/assets/img/favicons/favicon.ico"><meta name="apple-mobile-web-app-title" content="Simon's Research Center"><meta name="application-name" content="Simon's Research Center"><meta name="msapplication-TileColor" content="#da532c"><meta name="msapplication-config" content="/assets/img/favicons/browserconfig.xml"><meta name="theme-color" content="#ffffff"><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="dns-prefetch" href="https://fonts.gstatic.com" crossorigin><link rel="preconnect" href="https://fonts.googleapis.com" ><link rel="dns-prefetch" href="https://fonts.googleapis.com" ><link rel="preconnect" href="https://cdn.jsdelivr.net" ><link rel="dns-prefetch" href="https://cdn.jsdelivr.net" ><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.11.2/css/all.min.css"><link rel="stylesheet" href="/assets/css/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/magnific-popup@1/dist/magnific-popup.min.css"> <script src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script> <script type="text/javascript"> class ModeToggle { static get MODE_KEY() { return "mode"; } static get MODE_ATTR() { return "data-mode"; } static get DARK_MODE() { return "dark"; } static get LIGHT_MODE() { return "light"; } static get ID() { return "mode-toggle"; } constructor() { if (this.hasMode) { if (this.isDarkMode) { if (!this.isSysDarkPrefer) { this.setDark(); } } else { if (this.isSysDarkPrefer) { this.setLight(); } } } let self = this; /* always follow the system prefers */ this.sysDarkPrefers.addEventListener("change", () => { if (self.hasMode) { if (self.isDarkMode) { if (!self.isSysDarkPrefer) { self.setDark(); } } else { if (self.isSysDarkPrefer) { self.setLight(); } } self.clearMode(); } self.notify(); }); } /* constructor() */ get sysDarkPrefers() { return window.matchMedia("(prefers-color-scheme: dark)"); } get isSysDarkPrefer() { return this.sysDarkPrefers.matches; } get isDarkMode() { return this.mode === ModeToggle.DARK_MODE; } get isLightMode() { return this.mode === ModeToggle.LIGHT_MODE; } get hasMode() { return this.mode != null; } get mode() { return sessionStorage.getItem(ModeToggle.MODE_KEY); } /* get the current mode on screen */ get modeStatus() { if (this.isDarkMode || (!this.hasMode && this.isSysDarkPrefer)) { return ModeToggle.DARK_MODE; } else { return ModeToggle.LIGHT_MODE; } } setDark() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.DARK_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.DARK_MODE); } setLight() { $('html').attr(ModeToggle.MODE_ATTR, ModeToggle.LIGHT_MODE); sessionStorage.setItem(ModeToggle.MODE_KEY, ModeToggle.LIGHT_MODE); } clearMode() { $('html').removeAttr(ModeToggle.MODE_ATTR); sessionStorage.removeItem(ModeToggle.MODE_KEY); } /* Notify another plugins that the theme mode has changed */ notify() { window.postMessage({ direction: ModeToggle.ID, message: this.modeStatus }, "*"); } } /* ModeToggle */ const toggle = new ModeToggle(); function flipMode() { if (toggle.hasMode) { if (toggle.isSysDarkPrefer) { if (toggle.isLightMode) { toggle.clearMode(); } else { toggle.setLight(); } } else { if (toggle.isDarkMode) { toggle.clearMode(); } else { toggle.setDark(); } } } else { if (toggle.isSysDarkPrefer) { toggle.setLight(); } else { toggle.setDark(); } } toggle.notify(); } /* flipMode() */ </script><meta name="google-site-verification" content="J_a4XJ2oefe52p6EYvjTFdh9LW5Yc5RyGg1HpQOjWaA" /><body data-spy="scroll" data-target="#toc" data-topbar-visible="true"><div id="sidebar" class="d-flex flex-column align-items-end"><div class="profile-wrapper text-center"><div id="avatar"> <a href="/" class="mx-auto"> <img src="/assets/img/avatar.png" alt="avatar" onerror="this.style.display='none'"> </a></div><div class="site-title mt-3"> <a href="/">Simon's Research Center</a></div><div class="site-subtitle font-italic">성장하는 연구원의 공책</div></div><ul class="w-100"><li class="nav-item"> <a href="/" class="nav-link"> <i class="fa-fw fas fa-home ml-xl-3 mr-xl-3 unloaded"></i> <span>HOME</span> </a><li class="nav-item"> <a href="/categories/" class="nav-link"> <i class="fa-fw fas fa-stream ml-xl-3 mr-xl-3 unloaded"></i> <span>CATEGORIES</span> </a><li class="nav-item"> <a href="/tags/" class="nav-link"> <i class="fa-fw fas fa-tag ml-xl-3 mr-xl-3 unloaded"></i> <span>TAGS</span> </a><li class="nav-item"> <a href="/archives/" class="nav-link"> <i class="fa-fw fas fa-archive ml-xl-3 mr-xl-3 unloaded"></i> <span>ARCHIVES</span> </a><li class="nav-item"> <a href="/about/" class="nav-link"> <i class="fa-fw fas fa-info-circle ml-xl-3 mr-xl-3 unloaded"></i> <span>ABOUT</span> </a></ul><div class="sidebar-bottom mt-auto d-flex flex-wrap justify-content-center align-items-center"> <button class="mode-toggle btn" aria-label="Switch Mode"> <i class="fas fa-adjust"></i> </button> <span class="icon-border"></span> <a href="https://github.com/zerojsh00" aria-label="github" target="_blank" rel="noopener"> <i class="fab fa-github"></i> </a> <a href="https://twitter.com/" aria-label="twitter" target="_blank" rel="noopener"> <i class="fab fa-twitter"></i> </a> <a href=" javascript:location.href = 'mailto:' + ['zerojsh00','gmail.com'].join('@')" aria-label="email" > <i class="fas fa-envelope"></i> </a> <a href="/feed.xml" aria-label="rss" > <i class="fas fa-rss"></i> </a></div></div><div id="topbar-wrapper" class="row justify-content-center"><div id="topbar" class="col-11 d-flex h-100 align-items-center justify-content-between"> <span id="breadcrumb"> <span> <a href="/"> Home </a> </span> <span>(K8S) 쿠버네티스 환경변수 설정, 컨피그맵(ConfigMap)과 시크릿(Secret)</span> </span> <i id="sidebar-trigger" class="fas fa-bars fa-fw"></i><div id="topbar-title"> Post</div><i id="search-trigger" class="fas fa-search fa-fw"></i> <span id="search-wrapper" class="align-items-center"> <i class="fas fa-search fa-fw"></i> <input class="form-control" id="search-input" type="search" aria-label="search" autocomplete="off" placeholder="Search..."> </span> <span id="search-cancel" >Cancel</span></div></div><div id="main-wrapper"><div id="main"><div class="row"><div id="core-wrapper" class="col-12 col-lg-11 col-xl-8"><div class="post pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><h1 data-toc-skip>(K8S) 쿠버네티스 환경변수 설정, 컨피그맵(ConfigMap)과 시크릿(Secret)</h1><div class="post-meta text-muted"><div> By <em> Sanghyeon </em></div><div class="d-flex"><div> <span> Posted <em class="timeago" data-ts="1660834800" data-toggle="tooltip" data-placement="bottom" data-tooltip-df="llll" > 2022-08-19 </em> </span> <span class="readtime" data-toggle="tooltip" data-placement="bottom" title="2791 words"> <em>15 min</em> read</span></div></div></div><div class="post-content"><p>이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다.</p><hr /><h1 id="쿠버네티스-환경변수-설정">쿠버네티스 환경변수 설정</h1><p>우리가 개발한 애플리케이션은 대부분 여러가지 환경변수(설정값)들을 정의해야 한다. 간단한 예를 들어보면, 로깅 레벨을 정의할 때 <code class="language-plaintext highlighter-rouge">LOG_LEVEL=INFO</code>처럼 단순히 <code class="language-plaintext highlighter-rouge">키-값 형태의 설정값</code>이 되든지, 아니면 Nginx 웹 서버가 사용하는 nginx.conf처럼 <code class="language-plaintext highlighter-rouge">완전한 하나의 설정 파일 형태</code>가 되든지 환경변수를 정의해야 한다.</p><p>이러한 환경변수를 우리의 애플리케이션에 전달하는 가장 확실하고 직관적인 방법은 도커 이미지 내부에 설정값 또는 설정 파일을 정적으로 저장해두는 것이다. 그러나 이러한 방식은 단점이 있는데, 도커 이미지는 한번 빌드가 완료되면 불변의 상태이기 때문에 설정 옵션을 유연하게 변경할 수 없다.</p><h2 id="파드-정의-yaml-파일을-활용한-환경변수-설정"><span class="mr-2">파드 정의 YAML 파일을 활용한 환경변수 설정</span><a href="#파드-정의-yaml-파일을-활용한-환경변수-설정" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>쿠버네티스에서는 다음과 같이 파드 정의 YAML 파일에서 <code class="language-plaintext highlighter-rouge">env</code>를 통해 컨테이너에 환경변수를 직접 하드 코딩 방식으로 전달할 수 있다.</p><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="c1"># pod-definition.yaml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">containers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+      <span class="na">image</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+      <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+
+      <span class="c1"># 아래 env 부분에서 환경 변수를 설정한다.</span>
+      <span class="na">env</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">APP_COLOR</span> <span class="c1"># 컨테이너가 사용할 수 있는 환경 변수의 이름</span>
+          <span class="na">value</span><span class="pi">:</span> <span class="s">pink</span> <span class="c1"># 환경 변수의 값</span>
+</pre></table></code></div></div><p>이와 같은 방식을 <code class="language-plaintext highlighter-rouge">Plain Key Value</code>라고 부른다. 나쁜 방식은 아니지만, <strong>상황에 따라서 환경변수의 값만 다르고 내용은 동일한 YAML 파일을 여러 개 사용해야 하는 경우도 있다.</strong> 이 경우, 파드 정의 YAML 파일에서 환경변수만을 분리해서 관리하면 한결 편리할 것이다.</p><p>쿠버네티스는 YAML 파일과 환경변수를 분리할 수 있는 방식으로 <code class="language-plaintext highlighter-rouge">컨피그맵(ConfigMap)</code>과 <code class="language-plaintext highlighter-rouge">시크릿(Secret)</code> 오브젝트를 제공한다.</p><hr /><h1 id="컨피그맵configmap">컨피그맵(ConfigMap)</h1><p>앞서 파드 정의 YAML 파일에서 환경 변수를 정의하는 방식을 살펴보았다. 그런데, YAML 파일이 많아지면, 다양한 파일들에 정의되어 있는 환경변수들 또한 관리하기 어려워진다. 따라서 파드 정의 YAML 파일 밖에서 환경변수들을 관리하는 방식인 <code class="language-plaintext highlighter-rouge">컨피그맵(ConfigMap)</code>이 필요하다.</p><p><strong>컨피그맵은 환경변수 데이터를 키-값(key-value)의 쌍으로 전달하기 위해 사용된다.</strong> 컨피그맵은 파드가 생성될 때 파드에 주입되고, 이렇게 주입된 키-값 쌍의 환경변수들은 파드 내 컨테이너에서 호스트되는 애플리케이션에서 접근할 수 있게 된다. 즉, 다음 두 단계를 거치는 것이다.</p><ul><li>컨피그맵 생성하기<li>파드에 컨피그맵 주입하기</ul><h2 id="컨피그맵-생성하기"><span class="mr-2">컨피그맵 생성하기</span><a href="#컨피그맵-생성하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>컨피그맵은 다른 쿠버네티스 오브젝트들과 마찬가지로 <code class="language-plaintext highlighter-rouge">명령형(imperative) 방식</code>과 <code class="language-plaintext highlighter-rouge">선언형(declarative) 방식</code>으로 생성할 수 있다.</p><h3 id="컨피그맵-생성하기--명령형imperative-방식"><span class="mr-2">컨피그맵 생성하기 : 명령형(imperative) 방식</span><a href="#컨피그맵-생성하기--명령형imperative-방식" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><code class="language-plaintext highlighter-rouge">kubectl create configmap {컨피그맵 이름} --from-literal={키}={값}</code><ul><li>예) <code class="language-plaintext highlighter-rouge">kubectl create configmap app-config --from-literal=APP_COLOR=blue --from-literal=APP_MODE=prod</code></ul></ul><p>위와 같이 <code class="language-plaintext highlighter-rouge">--from-literal</code> 옵션을 사용하여 컨피그맵에 환경변수를 키-값 형태로 전달할 수 있다. 또한, <code class="language-plaintext highlighter-rouge">--from-literal</code> 옵션을 여러 번 사용하여 여러 개의 요소들을 한번에 입력할 수도 있다.</p><ul><li><code class="language-plaintext highlighter-rouge">kubectl create configmap {컨피그맵 이름} --from-file={파일의 경로}</code><ul><li>예) <code class="language-plaintext highlighter-rouge">kubectl create configmap app-config --from-file=app_config.properties</code></ul></ul><p>위와 같이 파일의 경로를 지정해주는 방식도 가능하다.</p><p>참고로, 파일로 사용한 app_config.properties는 아래와 같이 구성할 수 있다.</p><div class="language-plaintext highlighter-rouge"><div class="code-header"> <span data-label-text="Plaintext"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre># app_config.properties
+
+APP_COLOR=blue
+APP_MODE=prod
+</pre></table></code></div></div><h3 id="컨피그맵-생성하기--선언형declarative-방식"><span class="mr-2">컨피그맵 생성하기 : 선언형(declarative) 방식</span><a href="#컨피그맵-생성하기--선언형declarative-방식" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre><td class="rouge-code"><pre><span class="c1"># config-map.yaml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span> <span class="c1"># kind는 ConfigMap으로 설정한다.</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">app-config</span>
+<span class="na">data</span><span class="pi">:</span> <span class="c1"># 아래 부분에 ConfigMap 내용을 적어준다.</span>
+  <span class="na">APP_COLOR</span><span class="pi">:</span> <span class="s">blue</span>
+  <span class="na">APP_MODE</span><span class="pi">:</span> <span class="s">prod</span>
+</pre></table></code></div></div><p>이후 <code class="language-plaintext highlighter-rouge">kubectl create -f config-map.yaml</code> 명령어를 입력한다.</p><p><code class="language-plaintext highlighter-rouge">kubectl get configmaps</code> 또는 <code class="language-plaintext highlighter-rouge">kubectl describe configmaps</code> 명령어를 통해 현재의 ConfigMap을 확인할 수 있다.</p><h2 id="파드에-컨피그맵-주입하기"><span class="mr-2">파드에 컨피그맵 주입하기</span><a href="#파드에-컨피그맵-주입하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>컨피그맵을 생성했다면, 생성된 컨피그맵을 파드에 주입해야 우리가 따로 설정한 환경변수를 활용할 수 있다.</p><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="c1"># pod-definition.yaml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">containers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+      <span class="na">image</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+      <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+
+      <span class="c1"># 아래 envFrom 부분을 통해 생성된 ConfigMap을 파드에 주입(설정)한다.</span>
+      <span class="na">envFrom</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">configMapRef</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="s">app-config</span> <span class="c1"># ConfigMap 정의 YAML 파일의 metadata 이름을 적는다.</span>
+</pre></table></code></div></div><p>이후 <code class="language-plaintext highlighter-rouge">kubectl create -f pod-definition.yaml</code> 명령어를 통해 파드를 생성하면, 컨피그맵을 통해 환경변수 설정이 주입된 파드가 실행될 것이다.</p><p>이러한 방식 외에도 컨피그맵을 주입하는 방식은 아래와 같이 몇 가지 더 있다.</p><h3 id="파드에-컨피그맵을-주입하는-여러-방법"><span class="mr-2">파드에 컨피그맵을 주입하는 여러 방법</span><a href="#파드에-컨피그맵을-주입하는-여러-방법" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="c1"># 위에서 살펴본, 기본적인 방식</span>
+<span class="na">envFrom</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">configMapRef</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">app-config</span> <span class="c1"># ConfigMap 정의 YAML 파일의 metadata 이름을 적는다.</span>
+</pre></table></code></div></div><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+</pre><td class="rouge-code"><pre><span class="c1"># 하나의 키 값만 가져오는 경우</span>
+<span class="na">env</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">APP_COLOR</span>
+    <span class="na">valueFrom</span><span class="pi">:</span>
+      <span class="na">configMapKeyRef</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">app-config</span> <span class="c1"># ConfigMap 정의 YAML 파일의 metadata 이름을 적는다.</span>
+        <span class="na">key</span><span class="pi">:</span> <span class="s">APP_COLOR</span> <span class="c1"># 가져오고자 하는 키 값을 입력한다.</span>
+</pre></table></code></div></div><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="c1"># 볼륨에서 전체 데이터를 파일로 가져오는 경우</span>
+<span class="na">volumes</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">app-config-volume</span>
+  <span class="na">configMap</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">app-config</span> <span class="c1"># ConfigMap 정의 YAML 파일의 metadata 이름을 적는다.</span>
+</pre></table></code></div></div><hr /><h1 id="시크릿secret">시크릿(Secret)</h1><p>지금까지 쿠버네티스에서 컨테이너의 환경변수를 관리하기 위해 컨피그맵을 생성하고 이를 파드에 주입하는 것을 살펴보았다. 그런데, 환경변수에는 사용자의 비밀번호와 같이 민감한 정보들이 있을 수 있다. 예를 들어보자.</p><h2 id="컨피그맵의-한계-그리고-시크릿의-필요성"><span class="mr-2">컨피그맵의 한계, 그리고 시크릿의 필요성</span><a href="#컨피그맵의-한계-그리고-시크릿의-필요성" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><div class="language-python highlighter-rouge"><div class="code-header"> <span data-label-text="Python"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre><td class="rouge-code"><pre><span class="c1"># app.py
+</span>
+<span class="kn">import</span> <span class="n">os</span>
+<span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">==</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+
+    <span class="n">mysql</span><span class="p">.</span><span class="n">connector</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="s">'mysql'</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="s">'root'</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">'123'</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="s">'hello.html'</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="nf">fetchcolor</span><span class="p">())</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s">"8080"</span><span class="p">)</span>
+</pre></table></code></div></div><p>위와 같은 app.py 파일이 있다고 해보자. mysql 데이터베이스에 접근하는 코드를 살펴보면, <code class="language-plaintext highlighter-rouge">user=’root’</code>, <code class="language-plaintext highlighter-rouge">password=’123’</code> 같은 민감한 정보들이 있다. 이러한 변수들을 단순히 컨피그맵을 통해서 표현하면 다음과 같이 매우 노골적으로 민감한 정보들이 표현된다.</p><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="c1"># config-map.yaml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">app-config</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">DB_Host</span><span class="pi">:</span> <span class="s">mysql</span>
+  <span class="na">DB_User</span><span class="pi">:</span> <span class="s">root</span>
+  <span class="na">DB_Password</span><span class="pi">:</span> <span class="s">passwrd</span>
+</pre></table></code></div></div><p>이러한 문제를 해결하기 위해서 <code class="language-plaintext highlighter-rouge">시크릿(Secret)</code>이 활용된다. 먼저, 시크릿의 생김새부터 간단히 살펴보면 다음과 같이 사람이 알아볼 수 없는 <code class="language-plaintext highlighter-rouge">hashed format</code>으로 값들이 표현되어 있는 것을 알 수 있다.</p><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="c1"># Secret</span>
+
+<span class="na">DB_Host</span><span class="pi">:</span> <span class="s">bXlzcWw=</span>
+<span class="na">DB_User</span><span class="pi">:</span> <span class="s">cm9vdA==</span>
+<span class="na">DB_Password</span><span class="pi">:</span> <span class="s">cGFzd3JK</span>
+</pre></table></code></div></div><p>ConfigMap과 마찬가지로 Secret 또한 다음 두 단계를 거친다.</p><ul><li>시크릿 생성하기<li>파드에 시크릿 주입하기</ul><h2 id="시크릿-생성하기"><span class="mr-2">시크릿 생성하기</span><a href="#시크릿-생성하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>컨피그맵과 마찬가지로 <code class="language-plaintext highlighter-rouge">명령형(imperative) 방식</code>과 <code class="language-plaintext highlighter-rouge">선언형(declarative)방식</code>으로 시크릿을 생성할 수 있다.</p><h3 id="시크릿-생성하기--명령형imperative-방식"><span class="mr-2">시크릿 생성하기 : 명령형(imperative) 방식</span><a href="#시크릿-생성하기--명령형imperative-방식" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><ul><li><code class="language-plaintext highlighter-rouge">kubectl create secret generic {시크릿 이름} --from-literal={키}={값}</code><ul><li>예) <code class="language-plaintext highlighter-rouge">kubectl create secret generic app-secret --from-literal=DB_Host=mysql --from-literal=DB_User=root --from-literal=DB_Password=passwrd</code></ul></ul><p>컨피그맵과 마찬가지로, 위와 같이 <code class="language-plaintext highlighter-rouge">--from-literal</code> 옵션을 사용하여 시크릿에 환경변수를 키-값 형태로 전달할 수 있다. 또한, <code class="language-plaintext highlighter-rouge">--from-literal</code> 옵션을 여러 번 사용하여 여러 개의 요소들을 한번에 입력할 수도 있다.</p><ul><li><code class="language-plaintext highlighter-rouge">kubectl create secret generic {시크릿 이름} --from-file={파일의 경로}</code><ul><li>예) <code class="language-plaintext highlighter-rouge">kubectl create secret generic app-secret --from-file=app_secret.properties</code></ul></ul><p>컨피그맵과 마찬가지로, 위와 같이 파일의 경로를 지정해주는 방식도 가능하다.</p><h3 id="시크릿-생성하기--선언형declarative-방식"><span class="mr-2">시크릿 생성하기 : 선언형(declarative) 방식</span><a href="#시크릿-생성하기--선언형declarative-방식" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre><td class="rouge-code"><pre><span class="c1"># secret-data.yaml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Secret</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">app-secret</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="na">DB_Host</span><span class="pi">:</span> <span class="s">bXlzcWw=</span> <span class="c1"># 참고 : echo -n 'mysql' | base64</span>
+  <span class="na">DB_User</span><span class="pi">:</span> <span class="s">cm9vdA==</span> <span class="c1"># 참고 : echo -n 'root' | base64</span>
+  <span class="na">DB_Password</span><span class="pi">:</span> <span class="s">cGFzd3Jk</span> <span class="c1"># 참고 : echo -n 'passwrd' | base64</span>
+</pre></table></code></div></div><p><code class="language-plaintext highlighter-rouge">kubectl get secrets</code> 또는 <code class="language-plaintext highlighter-rouge">kubectl describe secrets</code> 명령어를 통해 생성된 시크릿을 확인할 수 있다. <code class="language-plaintext highlighter-rouge">kubectl get secret app-secret -o yaml</code> 명령어를 통해 YAML 형식으로도 확인할 수 있다.</p><h2 id="파드에-시크릿-주입하기"><span class="mr-2">파드에 시크릿 주입하기</span><a href="#파드에-시크릿-주입하기" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>위의 방식대로 시크릿을 생성했다고 하면, 생성된 시크릿을 파드에 주입해야 한다.</p><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre><td class="rouge-code"><pre><span class="c1"># pod-definition.yaml</span>
+
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Pod</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">containers</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+      <span class="na">image</span><span class="pi">:</span> <span class="s">simple-webapp-color</span>
+      <span class="na">ports</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+
+      <span class="c1"># 아래 envFrom 부분을 통해 생성된 Secret을 파드에 주입(설정)한다.</span>
+      <span class="na">envFrom</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">secretMapRef</span><span class="pi">:</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="s">app-secret</span> <span class="c1"># Secret 정의 YAML 파일에 설정한 metadata 이름을 적는다.</span>
+</pre></table></code></div></div><p>이후 <code class="language-plaintext highlighter-rouge">kubectl create -f pod-definition.yaml</code> 명령어를 통해 파드를 생성하면, 시크릿을 통해 환경변수 설정이 주입된 파드가 실행될 것이다.</p><p>이러한 방식 외에도 시크릿을 주입하는 방식은 아래와 같이 몇 가지 더 있다.</p><h3 id="파드에-시크릿을-주입하는-여러-방법"><span class="mr-2">파드에 시크릿을 주입하는 여러 방법</span><a href="#파드에-시크릿을-주입하는-여러-방법" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+</pre><td class="rouge-code"><pre><span class="c1"># 위에서 살펴본, 기본적인 방법</span>
+<span class="na">envFrom</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">secretMapRef</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">app-secret</span> <span class="c1"># Secret 정의 YAML 파일에 설정한 metadata 이름을 적는다.</span>
+</pre></table></code></div></div><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre><td class="rouge-code"><pre><span class="c1"># 또는 하나의 키 값만 가져오는 경우</span>
+<span class="na">env</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">DB_Password</span>
+    <span class="na">valueFrom</span><span class="pi">:</span>
+      <span class="na">SecretKeyRef</span><span class="pi">:</span>
+        <span class="na">name</span><span class="pi">:</span> <span class="s">app-secret</span> <span class="c1"># Secret 정의 YAML 파일에 설정한 metadata 이름을 적는다.</span>
+        <span class="na">key</span><span class="pi">:</span> <span class="s">DB_Password</span> <span class="c1"># 가져오고자 하는 키 값을 입력한다.</span>
+
+</pre></table></code></div></div><div class="language-yaml highlighter-rouge"><div class="code-header"> <span data-label-text="YAML"><i class="fas fa-code small"></i></span> <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre><td class="rouge-code"><pre><span class="c1"># 또는 볼륨에서 전체 데이터를 파일로 가져오는 경우</span>
+<span class="na">volumes</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">app-secret-volume</span>
+  <span class="na">secret</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">app-secret</span> <span class="c1"># Secret 정의 YAML 파일에 설정한 metadata 이름을 적는다.</span>
+</pre></table></code></div></div><hr /><h1 id="참고-문헌">참고 문헌</h1><p>[1] <code class="language-plaintext highlighter-rouge">Mumshad Mannambeth의 강의</code> : <a href="https://www.udemy.com/course/certified-kubernetes-administrator-with-practice-tests/">Certified Kubernetes Administrator (CKA) with Practice Tests</a><br /> [2] <code class="language-plaintext highlighter-rouge">시작하세요! 도커/쿠버네티스 (용찬호 지음)</code> : <a href="http://www.yes24.com/Product/Goods/84927385">시작하세요! 도커/쿠버네티스</a><br /> [3] <code class="language-plaintext highlighter-rouge">쿠버네티스 공식 documentation</code> : <a href="https://kubernetes.io/docs/concepts/configuration/configmap/">ConfigMaps</a><br /> [4] <code class="language-plaintext highlighter-rouge">쿠버네티스 공식 documentation</code> : <a href="https://kubernetes.io/ko/docs/concepts/configuration/secret/">Secrets</a></p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"> <i class="far fa-folder-open fa-fw mr-1"></i> <a href='/categories/kubernetes/'>Kubernetes</a></div><div class="post-tags"> <i class="fa fa-tags fa-fw mr-1"></i> <a href="/tags/kubernetes/" class="post-tag no-text-decoration" >Kubernetes</a> <a href="/tags/k8s/" class="post-tag no-text-decoration" >K8S</a> <a href="/tags/docker/" class="post-tag no-text-decoration" >Docker</a> <a href="/tags/configure/" class="post-tag no-text-decoration" >Configure</a> <a href="/tags/configmap/" class="post-tag no-text-decoration" >ConfigMap</a> <a href="/tags/secret/" class="post-tag no-text-decoration" >Secret</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-3 pt-5 pb-2"><div class="license-wrapper"> This post is licensed under <a href="https://creativecommons.org/licenses/by/4.0/"> CC BY 4.0 </a> by the author.</div><div class="share-wrapper"> <span class="share-label text-muted mr-1">Share</span> <span class="share-icons"> <a href="https://twitter.com/intent/tweet?text=%28K8S%29+%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4+%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98+%EC%84%A4%EC%A0%95%2C+%EC%BB%A8%ED%94%BC%EA%B7%B8%EB%A7%B5%28ConfigMap%29%EA%B3%BC+%EC%8B%9C%ED%81%AC%EB%A6%BF%28Secret%29+-+Simon%27s+Research+Center&url=https%3A%2F%2Fzerojsh00.github.io%2Fposts%2FConfigure-Environment-Variables%2F" data-toggle="tooltip" data-placement="top" title="Twitter" target="_blank" rel="noopener" aria-label="Twitter"> <i class="fa-fw fab fa-twitter"></i> </a> <a href="https://www.facebook.com/sharer/sharer.php?title=%28K8S%29+%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4+%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98+%EC%84%A4%EC%A0%95%2C+%EC%BB%A8%ED%94%BC%EA%B7%B8%EB%A7%B5%28ConfigMap%29%EA%B3%BC+%EC%8B%9C%ED%81%AC%EB%A6%BF%28Secret%29+-+Simon%27s+Research+Center&u=https%3A%2F%2Fzerojsh00.github.io%2Fposts%2FConfigure-Environment-Variables%2F" data-toggle="tooltip" data-placement="top" title="Facebook" target="_blank" rel="noopener" aria-label="Facebook"> <i class="fa-fw fab fa-facebook-square"></i> </a> <a href="https://t.me/share/url?url=https%3A%2F%2Fzerojsh00.github.io%2Fposts%2FConfigure-Environment-Variables%2F&text=%28K8S%29+%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4+%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98+%EC%84%A4%EC%A0%95%2C+%EC%BB%A8%ED%94%BC%EA%B7%B8%EB%A7%B5%28ConfigMap%29%EA%B3%BC+%EC%8B%9C%ED%81%AC%EB%A6%BF%28Secret%29+-+Simon%27s+Research+Center" data-toggle="tooltip" data-placement="top" title="Telegram" target="_blank" rel="noopener" aria-label="Telegram"> <i class="fa-fw fab fa-telegram"></i> </a> <i id="copy-link" class="fa-fw fas fa-link small" data-toggle="tooltip" data-placement="top" title="Copy link" data-title-succeed="Link copied successfully!"> </i> </span></div></div></div><script src="https://utteranc.es/client.js" repo="zerojsh00/zerojsh00.github.io" issue-term="pathname" theme="github-light" crossorigin="anonymous" async> </script></div></div><div id="panel-wrapper" class="col-xl-3 pl-2 text-muted"><div class="access"><div id="access-lastmod" class="post"><div class="panel-heading">Recently Updated</div><ul class="post-content pl-0 pb-1 ml-1 mt-2"><li><a href="/posts/Network-Policy/">(K8S) 네트워크 정책(Network Policy) 기초 개념</a><li><a href="/posts/CNI-Weave/">(K8S) CNI Weave의 기초 개념</a><li><a href="/posts/Container-Networking-Interface/">(K8S) 네트워크 기초 정리 - CNI</a><li><a href="/posts/Storage-in-Docker/">(K8S) 도커의 스토리지(Storage in Docker)</a><li><a href="/posts/Security-Context/">(K8S) Security Context</a></ul></div><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/k8s/">K8S</a> <a class="post-tag" href="/tags/kubernetes/">Kubernetes</a> <a class="post-tag" href="/tags/paper-review/">Paper Review</a> <a class="post-tag" href="/tags/security/">Security</a> <a class="post-tag" href="/tags/network/">Network</a> <a class="post-tag" href="/tags/speech-ai/">Speech AI</a> <a class="post-tag" href="/tags/scheduling/">Scheduling</a> <a class="post-tag" href="/tags/nlp/">NLP</a> <a class="post-tag" href="/tags/storage/">Storage</a> <a class="post-tag" href="/tags/asr/">ASR</a></div></div></div><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@1.0.1/dist/bootstrap-toc.min.js"></script><div id="toc-wrapper" class="pl-0 pr-4 mb-5"><div class="panel-heading pl-3 pt-2 mb-2">Contents</div><nav id="toc" data-toggle="toc"></nav></div></div></div><div class="row"><div class="col-12 col-lg-11 col-xl-8"><div id="tail-wrapper" class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-md-4 pr-md-4"><div id="related-posts" class="mt-5 mb-2 mb-sm-4"><h3 class="pt-2 mt-1 mb-4 ml-1" data-toc-skip>Further Reading</h3><div class="card-deck mb-4"><div class="card"> <a href="/posts/Commands-and-Arguments/"><div class="card-body"> <em class="timeago small" data-ts="1660834800" > 2022-08-19 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>(K8S) 도커와 쿠버네티스의 매개변수 받는 방법</h3><div class="text-muted small"><p> 이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다. [Docker] 간단히 살펴보는 Dockerfile의 CMD 프로세스가 종료되면 함께 종료되는 컨테이너 dock...</p></div></div></a></div><div class="card"> <a href="/posts/Docker-Networking/"><div class="card-body"> <em class="timeago small" data-ts="1662822000" > 2022-09-11 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>(K8S) 네트워크 기초 정리 - 도커의 네트워크</h3><div class="text-muted small"><p> 이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다. 도커의 네트워크 옵션 및 네트워크 네임스페이스와 관련한 내용들을 정리해보고자 한다. bridge(docker0) ...</p></div></div></a></div><div class="card"> <a href="/posts/Container-Networking-Interface/"><div class="card-body"> <em class="timeago small" data-ts="1662908400" > 2022-09-12 </em><h3 class="pt-0 mt-1 mb-3" data-toc-skip>(K8S) 네트워크 기초 정리 - CNI</h3><div class="text-muted small"><p> 이 글은 Mumshad Mannambeth가 강의한 Udemy의 Certified Kubernetes Administrator (CKA) with Practice Tests 강의 커리큘럼을 토대로 공부한 내용을 정리하였음을 밝힙니다. CNI의 필요성 이전 ‘도커의 네트워크 글’에서 bridge network를 통해서 여러 네트워크 네임스페이스에 배...</p></div></div></a></div></div></div><div class="post-navigation d-flex justify-content-between"> <a href="/posts/Commands-and-Arguments/" class="btn btn-outline-primary" prompt="Older"><p>(K8S) 도커와 쿠버네티스의 매개변수 받는 방법</p></a> <a href="/posts/Multi-Container-Pods/" class="btn btn-outline-primary" prompt="Newer"><p>(K8S) 멀티 컨테이너 파드(Multi Container Pods)</p></a></div></div></div></div><footer class="d-flex w-100 justify-content-center"><div class="d-flex justify-content-between align-items-center text-muted"><div class="footer-left"><p class="mb-0"> © 2023 <a href="https://github.com/zerojsh00">Sanghyeon</a>. <span data-toggle="tooltip" data-placement="top" title="Except where otherwise noted, the blog posts on this site are licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License by the author.">Some rights reserved.</span></p></div><div class="footer-right"><p class="mb-0"> Powered by <a href="https://jekyllrb.com" target="_blank" rel="noopener">Jekyll</a> with <a href="https://github.com/cotes2020/jekyll-theme-chirpy" target="_blank" rel="noopener">Chirpy</a> theme.</p></div></div></footer></div><div id="search-result-wrapper" class="d-flex justify-content-center unloaded"><div class="col-12 col-sm-11 post-content"><div id="search-hints"><div id="access-tags"><div class="panel-heading">Trending Tags</div><div class="d-flex flex-wrap mt-3 mb-1 mr-3"> <a class="post-tag" href="/tags/k8s/">K8S</a> <a class="post-tag" href="/tags/kubernetes/">Kubernetes</a> <a class="post-tag" href="/tags/paper-review/">Paper Review</a> <a class="post-tag" href="/tags/security/">Security</a> <a class="post-tag" href="/tags/network/">Network</a> <a class="post-tag" href="/tags/speech-ai/">Speech AI</a> <a class="post-tag" href="/tags/scheduling/">Scheduling</a> <a class="post-tag" href="/tags/nlp/">NLP</a> <a class="post-tag" href="/tags/storage/">Storage</a> <a class="post-tag" href="/tags/asr/">ASR</a></div></div></div><div id="search-results" class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div></div><div id="mask"></div><a id="back-to-top" href="#" aria-label="back-to-top" class="btn btn-lg btn-box-shadow" role="button"> <i class="fas fa-angle-up"></i> </a> <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@1.10.0/dest/simple-jekyll-search.min.js"></script> <script> SimpleJekyllSearch({ searchInput: document.getElementById('search-input'), resultsContainer: document.getElementById('search-results'), json: '/assets/js/data/search.json', searchResultTemplate: '<div class="pl-1 pr-1 pl-sm-2 pr-sm-2 pl-lg-4 pr-lg-4 pl-xl-0 pr-xl-0"> <a href="{url}">{title}</a><div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1"> {categories} {tags}</div><p>{snippet}</p></div>', noResultsText: '<p class="mt-5">Oops! No result founds.</p>', templateMiddleware: function(prop, value, template) { if (prop === 'categories') { if (value === '') { return `${value}`; } else { return `<div class="mr-sm-4"><i class="far fa-folder fa-fw"></i>${value}</div>`; } } if (prop === 'tags') { if (value === '') { return `${value}`; } else { return `<div><i class="fa fa-tag fa-fw"></i>${value}</div>`; } } } }); </script> <script src="https://cdn.jsdelivr.net/combine/npm/magnific-popup@1/dist/jquery.magnific-popup.min.js,npm/lozad/dist/lozad.min.js,npm/clipboard@2/dist/clipboard.min.js"></script> <script src="https://cdn.jsdelivr.net/combine/npm/dayjs@1/dayjs.min.js,npm/dayjs@1/locale/ko.min.js,npm/dayjs@1/plugin/relativeTime.min.js,npm/dayjs@1/plugin/localizedFormat.min.js"></script> <script defer src="/assets/js/dist/post.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.bundle.min.js"></script> <script defer src="/app.js"></script>

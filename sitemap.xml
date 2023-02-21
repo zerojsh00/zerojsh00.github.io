@@ -1,0 +1,1108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/DistilBERT/</loc>
+      
+        <lastmod>2023-02-20T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/StarSpace/</loc>
+      
+        <lastmod>2023-02-13T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/BERTopic/</loc>
+      
+        <lastmod>2022-09-21T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Ingress/</loc>
+      
+        <lastmod>2022-09-16T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/CoreDNS-in-Kubernetes/</loc>
+      
+        <lastmod>2022-09-16T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/DNS-in-Kubernetes/</loc>
+      
+        <lastmod>2022-09-15T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Service-Networking/</loc>
+      
+        <lastmod>2022-09-14T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/ELECTRA/</loc>
+      
+        <lastmod>2022-09-13T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/CNI-Weave/</loc>
+      
+        <lastmod>2022-09-13T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Container-Networking-Interface/</loc>
+      
+        <lastmod>2022-09-12T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Docker-Networking/</loc>
+      
+        <lastmod>2022-09-11T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Switching-Routing/</loc>
+      
+        <lastmod>2022-09-07T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Storage-Class/</loc>
+      
+        <lastmod>2022-09-07T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/RoBERTa/</loc>
+      
+        <lastmod>2022-09-07T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Persistent-Volume-Claims/</loc>
+      
+        <lastmod>2022-09-06T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Persistent-Volumes/</loc>
+      
+        <lastmod>2022-09-05T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Volumes/</loc>
+      
+        <lastmod>2022-09-04T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Storage-in-Docker/</loc>
+      
+        <lastmod>2022-09-03T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Network-Policy/</loc>
+      
+        <lastmod>2022-09-03T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Security-Context/</loc>
+      
+        <lastmod>2022-08-29T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Service-Accounts/</loc>
+      
+        <lastmod>2022-08-28T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Image-Security/</loc>
+      
+        <lastmod>2022-08-28T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Cluster-Roles-and-Role-Bindings/</loc>
+      
+        <lastmod>2022-08-24T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Role-Based-Access-Controls/</loc>
+      
+        <lastmod>2022-08-23T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Authorization-basic/</loc>
+      
+        <lastmod>2022-08-23T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Security-Basics/</loc>
+      
+        <lastmod>2022-08-21T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Authenticate-basic/</loc>
+      
+        <lastmod>2022-08-21T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/API-Groups/</loc>
+      
+        <lastmod>2022-08-21T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Drain-and-Cordon/</loc>
+      
+        <lastmod>2022-08-20T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Multi-Container-Pods/</loc>
+      
+        <lastmod>2022-08-19T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Configure-Environment-Variables/</loc>
+      
+        <lastmod>2022-08-19T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Commands-and-Arguments/</loc>
+      
+        <lastmod>2022-08-19T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Static-Pods/</loc>
+      
+        <lastmod>2022-08-18T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/RollingUpdates/</loc>
+      
+        <lastmod>2022-08-18T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/DaemonSet/</loc>
+      
+        <lastmod>2022-08-18T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Resource-Requirements-and-Limits/</loc>
+      
+        <lastmod>2022-08-17T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Taints-and-Tolerations-vs-Node-Affinity/</loc>
+      
+        <lastmod>2022-08-16T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Node-Selector-and-Node-Affinity/</loc>
+      
+        <lastmod>2022-08-15T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Taints-and-Tolerations/</loc>
+      
+        <lastmod>2022-08-14T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Scheduling-manual/</loc>
+      
+        <lastmod>2022-08-10T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Namespaces/</loc>
+      
+        <lastmod>2022-08-09T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Imperative-vs-Declarative/</loc>
+      
+        <lastmod>2022-08-09T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Service-NodePort,-LoadBalancer/</loc>
+      
+        <lastmod>2022-08-08T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Service-ClusterIP/</loc>
+      
+        <lastmod>2022-08-08T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Service/</loc>
+      
+        <lastmod>2022-08-07T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Deployment/</loc>
+      
+        <lastmod>2022-08-07T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_ReplicaSet/</loc>
+      
+        <lastmod>2022-08-04T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Pod/</loc>
+      
+        <lastmod>2022-08-04T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Node-Components/</loc>
+      
+        <lastmod>2022-08-03T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/K8S_Control-Plane-Components/</loc>
+      
+        <lastmod>2022-08-02T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Wav2Vec2/</loc>
+      
+        <lastmod>2022-07-31T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Vector-Quantization/</loc>
+      
+        <lastmod>2022-07-30T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Conformer/</loc>
+      
+        <lastmod>2022-07-28T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Listen,-Attend-and-Spell/</loc>
+      
+        <lastmod>2022-07-26T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Connectionist-Temporal-Classification/</loc>
+      
+        <lastmod>2022-07-25T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/VQWav2Vec/</loc>
+      
+        <lastmod>2022-07-22T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Wav2Vec/</loc>
+      
+        <lastmod>2022-07-21T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/MFCC/</loc>
+      
+        <lastmod>2022-07-20T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Acoustic-Phonetics/</loc>
+      
+        <lastmod>2022-07-19T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Traditional-ASR/</loc>
+      
+        <lastmod>2022-07-18T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Euler's-Formula/</loc>
+      
+        <lastmod>2022-07-17T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Bayes'-Theorem/</loc>
+      
+        <lastmod>2022-07-16T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Causal-Discovery-and-PC-algorithm/</loc>
+      
+        <lastmod>2022-05-12T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Query2Box/</loc>
+      
+        <lastmod>2022-05-11T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Matrix-Factorization-Techniques-for-Recommender-Systems/</loc>
+      
+        <lastmod>2022-05-10T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Causal-Bayesian-Network-02/</loc>
+      
+        <lastmod>2022-05-09T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Causal-Bayesian-Network-01/</loc>
+      
+        <lastmod>2022-05-08T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Causal-Inference-02/</loc>
+      
+        <lastmod>2022-05-03T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+    <url>
+      <loc>https://zerojsh00.github.io/posts/Causal-Inference-01/</loc>
+      
+        <lastmod>2022-05-02T00:00:00+09:00</lastmod>
+      
+
+      
+        <changefreq>weekly</changefreq>
+      
+
+      
+          <priority>0.5</priority>
+      
+
+    </url>
+  
+</urlset>
